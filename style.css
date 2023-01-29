@@ -1,0 +1,52 @@
+:root {
+    --color1: #F8EDE3;
+    --color2: #DFD3C3;
+    --color3: #85586F;
+}
+body {
+    background-color: var(--color1);
+    color: var(--color3);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+    background-color: var(--color2);
+    text-align: center;
+    border-style: hidden;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.navbar {
+    background-color: var(--color3);
+    border-style: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0px 0px 10px 0px;
+}
+
+.navbar a {
+    display: block;
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #111;
+}
+
+table {
+ border-collapse: collapse;
+ width: 100%;
+}
+td, th {
+ border: 1px solid var(--color2);
+ text-align: left;
+ padding: 8px;
+}
+tr:nth-child(even) {
+ background-color: var(--color2);
+}
