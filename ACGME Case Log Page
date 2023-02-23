@@ -1,0 +1,1225 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ACGME - Accreditation Data System (ADS)</title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<link href="/ads/bundles/core-css?v=XNnHmXDZdYR8OBZ0VQZrpPaqPZgEFK5sOjVF6nSgGck1" rel="stylesheet"/>
+    <link href="/ads/Content/css/bootstrap-alt-5.1.0.css" rel="stylesheet" type="text/css" />
+    <link href="/ads/Content/css/bootstrap-alt.css" rel="stylesheet" type="text/css" />
+
+    
+    
+    
+    <!--NOTE: The version below should always be enabled, while the version above is only meant for migration and should always be commnedted out.-->
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
+    
+    
+    
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="https://apps.acgme.org/ads/Scripts/libs/external/jquery.ui.button.js"></script>
+    <script type="text/javascript">
+			$.widget.bridge('uibutton', $.ui.button);
+	</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/additional-methods.js"></script>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/mvc/5.2/jquery.validate.unobtrusive.min.js"></script>
+<script src="https://apps.acgme.org/ads/bundles/core-external?v=znbtt2zAyzWSCTOcgjCD6pCJI0Pvq0qvbjhOoEt1vjM1"></script>
+<script src="https://apps.acgme.org/ads/bundles/core-internal?v=oMNwAlJx7d-5JRxXUk32C4V5SyMJhRhmkh6yDNlass01"></script>
+<script type="text/javascript">window._baseUrl = '/ads/';</script>
+<script src="https://apps.acgme.org/ads/bundles/Areas/CaseLogs/Scripts/CodeSearchByDefCategory?v=xDy4R5t9prUfUuiXlZKNUBo_DQDzpjs4atURjx6fVaA1"></script>
+
+<script src="https://apps.acgme.org/ads/bundles/Areas/CaseLogs/Scripts/CodeSearchBySearchTerm?v=Mz45Pc2guW1koARb8dV6X7URtKtmJwBdXw_HiBPruZw1"></script>
+
+<script src="https://apps.acgme.org/ads/bundles/Scripts/libs/external/jquery.dataTables?v=NN1SHqCkO2WQpHuPkSXXNMkoeIZhRaWKj_ymjbHUNs41"></script>
+
+<script src="https://apps.acgme.org/ads/bundles/Scripts/libs/external/dataTables.fixedHeader?v=qFs7rwa3BWJk0jANzzk-L8hQ2O3tTmbK1KY9gTXEdjA1"></script>
+
+<script src="https://apps.acgme.org/ads/bundles/Areas/CaseLogs/Scripts/CodeCommon?v=s6p8JPqN-LiWj2ViS23dX4b45837MeoItTbaDcMKNrw1"></script>
+
+<script src="https://apps.acgme.org/ads/bundles/Areas/CaseLogs/Scripts/CodeSearchByAreaType?v=gLN8CkZ1Su0x-Ki1vZ7WNUOf4K6L542EfpuIe2MwhIU1"></script>
+
+<script src="https://apps.acgme.org/ads/bundles/Areas/CaseLogs/Scripts/TypeToAreaCommon?v=HFPg1fb0j0hMGy8bfcOdbWRblaNvj7uxDgB_cnR7chE1"></script>
+
+<script src="https://apps.acgme.org/ads/bundles/Areas/CaseLogs/Scripts/CodeSearchByFavorites?v=7mWrroKtZZ036Z2HT7WhmYcxg17nkSBpB4vwfCd6qqE1"></script>
+
+<script src="https://apps.acgme.org/ads/bundles/Scripts/libs/external/bootstrap-datepicker?v=h8IuTW8P2EmWuGnxNju8WimedH-KEZM1hAWrpR0dpmY1"></script>
+
+<script src="https://apps.acgme.org/ads/bundles/Scripts/libs/external/jquery.cookie?v=ycNd-M2h0fnu2Heyn1VE4WEXCme3QuX9FxDMb3UEGsE1"></script>
+
+<script src="https://apps.acgme.org/ads/bundles/Areas/CaseLogs/Scripts/RRCResidentRoleCommon?v=f4WrkEv-JahwZIv-0WgVsUKOcsC0hjnHdIg9CBZ5krk1"></script>
+
+<script src="https://apps.acgme.org/ads/bundles/Scripts/libs/external/bootstrap-tour?v=HqU5jN7drXjcwY9SEjngeVL4TH9YgdGFG1Qj5WVtQq01"></script>
+
+<script src="https://apps.acgme.org/ads/bundles/Areas/CaseLogs/Scripts/ResidentProcedureCaseTemplate?v=tnjorvVg3t80ohiLKVUoLozSDKQyp_TkDFH4RuPff4Y1"></script>
+
+<script src="https://apps.acgme.org/ads/bundles/Areas/CaseLogs/Scripts/CaseEntry040?v=5dsjd1V_cjeJ87iOpywJWTdScqhBtG7Q8MN3aUojgvk1"></script>
+
+<script src="https://apps.acgme.org/ads/bundles/Areas/CaseLogs/Scripts/CaseEntry?v=4BZhsVA8LqIlwsd4fXFFtsuBwBlszaKGZkW2FjfpOj01"></script>
+
+<script src="https://apps.acgme.org/ads/bundles/Areas/CaseLogs/Scripts/TypeBasedCaseCommon?v=fJbTZ8JYlDs--QsGd4nanuUmPAcpGESSJ7Z4ZGupH_01"></script>
+
+<script src="https://apps.acgme.org/ads/bundles/Areas/CaseLogs/Scripts/SidePanelCodes?v=TvZ0IduvwxUXkjdJ69iWok99-mFxPNa9jXcoGgKXgAg1"></script>
+
+<script src="https://apps.acgme.org/ads/bundles/Areas/CaseLogs/Scripts/LastFive?v=P6xvSEqOGtBAbEvv5g-n9y6_EFIY8EENXOHWyAWsmxQ1"></script>
+
+
+    <input id="TokenExpirationTime" name="TokenExpirationTime" type="hidden" value="2/23/2023 2:15:14 PM" />
+    
+</head>
+<body class="no-admin-bar">
+	
+	
+<div id="simpleModalPlaceHolder"></div>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="simpleToastPlaceHolder" class="text-danger toast hide" data-bs-autohide="false">
+    <div class="toast-header text-danger">
+      <strong class="me-auto">Login Session Expiring</strong>
+    </div>
+    <div class="toast-body" id="simpleToastBody">
+    </div>
+  </div>
+</div>
+	<div id="page-wrapper">
+		<div id="page-container">
+			<div id="page-header">
+    <div id="acgme-logo-anchor">
+        <a id="acgme-logo"  href="/ads/">
+                <img src="/ads/Content/imgs/acgme-logo-white.svg" alt="ACGME" onerror="this.onerror=null; this.src='/ads/Content/imgs/acgme-logo-white.gif'" />
+        </a>
+<ul class="nav nav-pills nav-profile float-end">
+
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="javascript:;">
+        Help Center
+        <i class="icon-angle-down icon-large" aria-hidden="true"></i>
+    </a>
+    <ul class="dropdown-menu">
+                            <li class="faqsLink"><a class="link-external dropdown-item" target="_blank" href="https://residentfellow.zendesk.com/hc/en-us" title="Help" data-external-content="A new tab will open with the Resident/Fellow ADS Help Center. In order to return to ADS, close the Resident/Fellow ADS Help Center tab.">Help Center</a></li>
+    </ul>
+</li>
+    
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="javascript:;">
+        <i class="icon-user icon-fixed-width" aria-hidden="true"></i>
+        <i class="icon-angle-down icon-large" aria-hidden="true"></i>
+    </a>
+    <ul class="dropdown-menu">
+        <li class="no-wrap"><h6 class="dropdown-header">Welcome, Lauren Gabra </h6></li>
+
+            <li><a class="dropdown-item" href="/ads/Other/GetUserHighlights">Messages</a></li>
+
+        <li class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="/ads/Other/Profile">Profile Settings</a></li>
+        <li><a class="dropdown-item" href="/ads/Other/ChangePassword">Change Password</a></li>
+        <li><a class="dropdown-item" href="/ads/Other/ContactADS">Contact Support</a></li>
+
+            <li><a class="dropdown-item" href="/ads/CaseLogs/Agreement/Show">View User Agreement</a></li>
+        
+                    <li class="buildNotes">
+                <a class="dropdown-item" href="/ads/SharedArea/BuildNotes/Index">Software Updates</a>
+            </li>
+    </ul>
+</li>
+<li>
+    <a class="nav-link" href="javascript:void(0)" onclick="Logoff();">
+        <i class="icon-signout d-lg-none" aria-hidden="true"></i>
+        <span class="d-none d-lg-inline-block">Logout</span>
+    </a>
+</li>
+</ul>
+
+
+
+    <script type="text/javascript">
+    function Logoff() {
+        setTimeout(function () {
+            window.location.href = '/ads/Other/Logout';
+        }, 500);
+    }
+    var __showContextSwitch__ = function (data) {
+            $a.ui.simple.confirm(
+                'Switch Account',
+                "<label>You will be logged into:</label>"
+                + "<dl class='inline-block'>"
+                + "<dt>Organization Code</dt><dd>" + data.userLinkCode + "</dd>"
+                + "<dt>Organization Name</dt><dd>" + data.userLinkName + "</dd>"
+                + (data.userLinkRole != '' ? "<dt>Role</dt><dd>" + data.userLinkRole + "</dd>" : "")
+                + "</dl>",
+                //+ "<label class='checkbox'><input id='__defaultOrg__' type='checkbox'>Set as default</label>",
+                null,
+                function () {
+        //if (document.getElementById('__defaultOrg__').checked) {
+        //    data.userLinkHref = data.userLinkHref + "&setToDefault=true";
+        //}
+        window.location.href = data.userLinkHref;
+    },
+                'Confirm',
+                null,
+                null,
+                true
+            );
+        };
+    $(function () {
+        $(".user-switch a:link").on('click', function (e) {
+        e.preventDefault();
+        var data = {
+                userLinkHref: $(this).attr("href"),
+                userLinkRole: $(this).attr("data-role"),
+                userLinkCode: $(this).attr("data-orgCode"),
+                userLinkName: $(this).attr("data-orgName")
+            };
+    __showContextSwitch__(data);
+        });
+        $(".user-switch a:link").on('mousedown', function (e) {
+        if (e.which === 2) {
+            e.preventDefault();
+            var data = {
+                    userLinkHref: $(this).attr("href"),
+                    userLinkRole: $(this).attr("data-role"),
+                    userLinkCode: $(this).attr("data-orgCode"),
+                    userLinkName: $(this).attr("data-orgName")
+                };
+        __showContextSwitch__(data);
+        return false;
+    }
+        });
+    });
+
+
+    </script>                    <div id="no-top-navigation-buffer">&nbsp;</div>
+    </div>
+</div>
+
+    <div id="tab-navigation">
+        <ul id="tab-navigation-menu" class="nav nav-tabs">
+        <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle active" href="/ads/CaseLogs/Default/Landing">
+Case Logs                                    <span class="icon-large icon-angle-down" aria-hidden="true"></span>
+            </a>
+                <ul class="dropdown-menu">
+                                        <li>
+                                            <h6 class="dropdown-header">
+                                                Cases
+                                            </h6>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/ads/CaseLogs/CaseEntry/Insert">Add</a></li>
+                                        <li><a class="dropdown-item" href="/ads/CaseLogs/CaseSearch/Search">Edit</a></li>
+                                        <li><a class="dropdown-item" href="/ads/CaseLogs/UpdateProcedureYear/Update">Update Case Year</a></li>
+                                <li class="dropdown-divider"></li>
+                                        <li>
+                                            <h6 class="dropdown-header">
+                                                Manage
+                                            </h6>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/ads/CaseLogs/ManageFavorites/GetFavoriteLists">Favorites</a></li>
+                                <li class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="/ads/CaseLogs/Reports/GetReportList">Download/Reports</a></li>
+                                        <li><a class="dropdown-item" href="/ads/CaseLogs/Default/ReferenceMaterials">Reference Materials</a></li>
+                </ul>
+        </li>
+        <li class="nav-item  ">
+            <a class="nav-link  " href="/ads/ResidentPortal">
+Profile                            </a>
+        </li>
+        <li class="nav-item  ">
+            <a class="nav-link  " href="/ads/ResidentPortal/PortalHome/Milestones">
+Milestones                            </a>
+        </li>
+        <li class="nav-item  ">
+            <a class="nav-link  " href="/ads/ResidentPortal/PortalHome/Surveys">
+Surveys                            </a>
+        </li>
+</ul>
+    </div>
+			<div id="column-container">
+				<div id="content-panel-wrapper">
+					<div id="content-panel" class="">
+						
+<script id="search-result-tmpl" type="text/x-jquery-tmpl">
+    {{if IsDiagnosisOrDiagnostic}}
+    <tr class="warning" data-code-id="${CodeId}" data-area-id="${AreaId}" data-type-id="${TypeId}" data-type-to-code-id="${TypeToCodeId}" data-def-cat-short-names="${DefCatShortNames}" data-max-qty-allowed="${MaxQtyAllowed}">
+        <td id="code-value">&nbsp;</td>
+        <td id="code-description">
+            <span id="code-description-text">${CodeDescription}</span>
+            <span id="def-cats"></span>
+            {{if HasCodeAttributes && !IsManagedFavorites}}
+            <br />
+            {{each CodeAttributes}}
+            <label class="codeAttributeBtnk checkbox inline padding-top-4px"><input type="checkbox" class="cbCodeAttribute codeAttributeBtn" value="${Id}" /> ${Name}</label>
+            {{/each}}
+            {{/if}}
+        </td>
+        {{if IsFavoritesEnabled }}
+        <td>${AreaName}</td>
+        <td id="typeName">${TypeName}</td>
+        <td class="text-center">
+            <button  data-bs-toggle="popover" data-bs-container="body" data-bs-trigger="hover" data-bs-placement="top" data-bs-html="true" data-bs-content="Add code to favorite list" type="button" class="btn btn-sm btn-link" onclick="caseEntryApp.handlers.AddCodeToFavListButtonClick(this)"><i class="icon-star" aria-hidden="true"></i></button>
+        </td>
+
+        {{else}}
+        <td>${AreaName}</td>
+        <td id="typeName">${TypeName}</td>
+        {{/if}}
+        {{if MaxQtyAllowed > 1}}
+        <td class="maxqty nowrap" id="code-qty">
+            ${CodeQty}
+            <div class="input-group input-group-sm float-end">
+                <input id="txtcodeQuantity" type="text" class="form-control form-control-sm" value="" min="1" max="${MaxQtyAllowed}" maxlength="${MaxQtyAllowedNumChars}" oninput="codeCommon.handlers.onCodeQtyEntered(this)" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="left" data-bs-container="body" data-bs-content="Max of ${MaxQtyAllowed} allowed." />
+                <button id="btnCodeAdd" type="button" class="btn btn-sm btn-light input-group-text" disabled="disabled" onclick="sidePanelCodes.handlers.addCodeHandler(this, false)">Add</button>
+            </div>
+        </td>
+        {{else}}
+    <td class="maxqty nowrap text-center" id="code-qty">
+        ${CodeQty}
+        <button type="button" class="btn btn-sm btn-light" onclick="sidePanelCodes.handlers.addCodeHandler(this, false)">Add</button>
+    </td>
+        {{/if}}
+    </tr>
+    {{else}}
+<tr data-code-id="${CodeId}" data-area-id="${AreaId}" data-type-id="${TypeId}" data-type-to-code-id="${TypeToCodeId}" data-def-cat-short-names="${DefCatShortNames}" data-max-qty-allowed="${MaxQtyAllowed}">
+    <td id="code-value">${CodeValue}</td>
+    <td id="code-description">
+        <span id="code-description-text">${CodeDescription}</span>
+        <span id="def-cats"></span>
+        {{if HasCodeAttributes  && !IsManagedFavorites}}
+        <br />
+        {{each CodeAttributes}}
+        <label class="codeAttributeBtn checkbox inline padding-top-4px"><input type="checkbox" class="cbCodeAttribute codeAttributeBtn" value="${Id}" /> ${Name}</label>
+        {{/each}}
+        {{/if}}
+    </td>
+
+
+    {{if IsFavoritesEnabled }}
+    <td>${AreaName}</td>
+    <td id="typeName">${TypeName}</td>
+    <td class="text-center">
+        <button  data-bs-toggle="popover" data-bs-container="body" data-bs-trigger="hover" data-bs-placement="top" data-bs-html="true" data-bs-content="Add code ${CodeValue} to favorite list" type="button" class="btn btn-sm btn-link" onclick="caseEntryApp.handlers.AddCodeToFavListButtonClick(this)"><i class="icon-star" aria-hidden="true"></i></button>
+    </td>
+    {{else}}
+    <td>${AreaName}</td>
+    <td id="typeName">${TypeName}</td>
+    {{/if}}
+    {{if MaxQtyAllowed > 1}}
+<td class="maxqty nowrap" id="code-qty">
+    ${CodeQty}
+    <div class="input-group input-group-sm float-end">
+        <input id="txtcodeQuantity" type="text" class="form-control form-control-sm" value="" min="1" max="${MaxQtyAllowed}" maxlength="${MaxQtyAllowedNumChars}" oninput="codeCommon.handlers.onCodeQtyEntered(this)" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="left" data-bs-container="body" data-bs-content="Max of ${MaxQtyAllowed} allowed." />
+        <button id="btnCodeAdd" type="button" class="btn btn-sm btn-light input-group-text" disabled="disabled" onclick="sidePanelCodes.handlers.addCodeHandler(this, false)">Add</button>
+    </div>
+</td>
+    {{else}}
+<td class="maxqty nowrap text-center" id="code-qty">
+    ${CodeQty}
+    <button type="button" class="btn btn-sm btn-light" onclick="sidePanelCodes.handlers.addCodeHandler(this, false)">Add</button>
+</td>
+    {{/if}}
+
+</tr>
+    {{/if}}
+</script>
+
+
+
+
+    <div class="page-header d-none d-lg-block">
+        <h1>
+            2804821102 - University of Texas Southwestern Medical Center Program<br />
+            <small>
+                Otolaryngology - Head and Neck Surgery - Dallas, TX
+            </small>
+        </h1>
+    </div>
+    <div class="page-header d-lg-none clearfix">
+        <div class="text-end float-end" id="casesSubmittedDiv" style="display:none">
+            <strong id="casesEntered"></strong><br /><span>Cases Submitted</span>
+        </div>
+        <div class="text-start">
+            <a class="btn btn-sm btn-link no-padding" data-bs-toggle="collapse" data-bs-target="#modelCodeName">
+                Dallas, TX <i class="icon-angle-down icon-fixed-width" aria-hidden="true"></i>
+            </a>
+            <div id="modelCodeName" class="collapse text-start">
+                2804821102 - University of Texas Southwestern Medical Center Program
+            </div>
+        </div>
+    </div>
+
+
+<form action="/ads/CaseLogs/CaseEntry/Insert" method="post">	<div class="header fixed-scroll">
+			<div class="float-end">
+                <div class="float-start">
+                    <div id="caseEntryCount">
+    <div>
+        <strong>1</strong>
+    </div>
+    <span>Cases Submitted</span>
+</div>
+
+                </div>
+				<button type="submit" class="btn btn-sm btn-success" id="submitButton">Submit</button>
+			</div>
+			<h2>Add Cases</h2>
+	</div>
+<div id="clienterrors">
+</div>
+<div class="alert alert-search">
+</div>	<div id="HiddenAttributeDefaultValues">
+		<input id="DefaultInstitutions" name="DefaultInstitutions" type="hidden" value="" />
+		<input id="DefaultAttendings" name="DefaultAttendings" type="hidden" value="" />
+		<input id="DefaultResidentRoles" name="DefaultResidentRoles" type="hidden" value="" />
+		<input id="DefaultRotations" name="DefaultRotations" type="hidden" value="20214" />
+		<input id="DefaultGenders" name="DefaultGenders" type="hidden" value="" />
+		<input id="DefaultPatientTypes" name="DefaultPatientTypes" type="hidden" value="111" />
+		<input id="DefaultProcedureYear" name="DefaultProcedureYear" type="hidden" value="1" />
+	</div>
+	<div>
+		<div class="panel panel-default panel-case-log-templates">
+				<div class="hidden"><label class='form-label'>Resident*</label><select data-bs-toggle="tooltip" data-bs-original-title="* Required"  data-bs-placement="right" data-val="true" data-val-required="This field is required." id="Residents" name="Residents"class="form-select form-select-sm" readOnly="True" >
+<option selected="selected" data-year="1" value="1151321">Gabra, Lauren</option>
+</select>
+<span class="field-validation-valid" data-valmsg-for="Residents" data-valmsg-replace="true"></span></div>
+					<div class="panel-heading">
+						<div class="panel-edit-buttons-on hide float-end">
+    <a href="javascript:;" class="btn btn-sm btn-light btn-cancel">Cancel</a>
+    <a id="SaveTemplateConfirmed" href="javascript:;" class="btn btn-sm btn-success">Save</a>
+</div>
+
+<div class="panel-edit-buttons-off float-end">
+    <button type="button" class="btn btn-sm btn-light btn-template" id="DeleteTemplate"><i class="icon-trash" aria-hidden="true"></i></button>
+    <button type="button" class="btn btn-sm btn-light btn-template" id="SaveTemplate">Update</button>
+    <button type="button" class="btn btn-sm btn-light btn-template" id="AddTemplate"><i class="icon-plus" aria-hidden="true"></i></button>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <div class="input-group input-group-sm input-template no-margin">
+            <select class="no-margin form-select form-select-sm" data-delete-residentprocedurecasetemplate-url="/ads/CaseLogs/ResidentProcedureCaseTemplate/DeleteResidentProcedureCaseTemplate" data-get-residentprocedurecasetemplate-url="/ads/CaseLogs/ResidentProcedureCaseTemplate/GetResidentProcedureCaseTemplate" data-get-residentprocedurecasetemplateoptions-url="/ads/CaseLogs/ResidentProcedureCaseTemplate/GetResidentProcedureCaseTemplateOptions" data-save-residentprocedurecasetemplate-url="/ads/CaseLogs/ResidentProcedureCaseTemplate/SaveResidentProcedureCaseTemplate" data-val="true" data-val-number="The field Resident Procedure Case Template Id must be a number." id="ResidentProcedureCaseTemplateId" name="ResidentProcedureCaseTemplateId"><option value="">Select Template</option>
+</select>
+            <span class="input-group-text">
+                <a data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" data-bs-content="Templates allows you to save a set of case selections (excluding Case ID, Case Date, Comments)." id="templInfo"><i class="icon-info-sign text-primary" aria-hidden="true"></i></a>
+            </span>
+        </div>
+        <span class="form-text template-count no-margin"></span>
+    </div>
+</div>
+
+
+
+<div id="delete-template-confirmation-tmpl" class="modal hide fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Template</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true" aria-label="Close" />
+            </div>
+			<div class="modal-body">
+				<p>Do you want to delete this template?</p>
+				<strong id="TemplateNameToBeDeleted"></strong>
+			</div>
+			<div class="modal-footer">
+				<a id="cancelDeleteTemplate" href="#" class="btn btn-sm btn-light" data-bs-dismiss="modal">Cancel</a>
+				<a id="DeleteTemplateConfirmed" href="#" class="btn btn-sm btn-primary">Confirm</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="HiddenAttributeDefaultValues">
+    <input id="DefaultInstitutions" name="DefaultInstitutions" type="hidden" value="" />
+    <input id="DefaultAttendings" name="DefaultAttendings" type="hidden" value="" />
+    <input id="DefaultResidentRoles" name="DefaultResidentRoles" type="hidden" value="" />
+    <input id="DefaultRotations" name="DefaultRotations" type="hidden" value="20214" />
+    <input id="DefaultGenders" name="DefaultGenders" type="hidden" value="" />
+    <input id="DefaultPatientTypes" name="DefaultPatientTypes" type="hidden" value="111" />
+    <input id="DefaultProcedureYear" name="DefaultProcedureYear" type="hidden" value="1" />
+    <input data-val="true" data-val-required="The Max Procedure Case Template field is required." id="MaxProcedureCaseTemplate" name="MaxProcedureCaseTemplate" type="hidden" value="10" />
+    <input id="CountProcedureCaseTemplate" name="CountProcedureCaseTemplate" type="hidden" value="0" />
+</div>
+
+					</div>
+			<div class="panel-body panel-edit">
+				<div class="row">
+					<div class="col-9">
+                        <div class="row hide template-name">
+                            <label class="form-label">Template Name</label>
+                            <div class="col-12 input-group input-group-sm input-template">
+                                <input class="form-control form-control-sm maxlength" id="TemplateNewName" maxlength="50" name="TemplateNewName" type="text" value="" />
+                                <input id="TemplateSaveType" name="TemplateSaveType" type="hidden" value="" />
+                                <span class="input-group-text" id="DefaultTemplateCB">
+                                    <label class="checkbox"><input type="checkbox" />Default</label>
+                                </span>
+                            </div>
+                        </div>
+						<div class="row">
+							<div class="col-4 mb-3"><label class='form-label'>Case ID <a data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" data-bs-html="true" data-bs-content="A unique identifier for each case that does not contain patient identifiable information, such as patient name or SSN."><i class="icon-info-sign text-primary" aria-hidden="true"></i></a></label><input maxlength="25" class="form-control form-control-sm maxlength" class="text-box single-line" id="PatientId" name="PatientId" type="text" value="" /></div>
+<div class="col-4 mb-3">
+    <label class="form-label">Case Date*</label>
+    <div class="input-group date ProcedureDate">
+        <input class="form-control form-control-sm valid" data-bs-toggle="tooltip" data-bs-original-title="* Required" data-bs-placement="right" data-val="true" data-val-required="The Case Date field is required." id="ProcedureDate" name="ProcedureDate" type="text" value="2/23/2023">
+        <span class="input-group-text"><i class="icon-calendar" aria-hidden="true"></i></span>
+        <span class="field-validation-valid" data-valmsg-for="ProcedureDate" data-valmsg-replace="true"></span>
+    </div>
+</div>						</div>
+						<div class="template-details">
+							<div class="row">
+								<div class="col-4 mb-3"><label class='form-label'>Case Year*</label><select data-bs-toggle="tooltip" data-bs-original-title="* Required"  data-bs-placement="right" data-val="true" data-val-required="This field is required." id="ProcedureYear" name="ProcedureYear"class="form-select form-select-sm" >
+<option selected="selected" value="1">1</option>
+</select>
+<span class="field-validation-valid" data-valmsg-for="ProcedureYear" data-valmsg-replace="true"></span></div>
+								<div class="col-4 mb-3"><label class='form-label'>Special Equipment*</label><select data-bs-toggle="tooltip" data-bs-original-title="* Required"  data-bs-placement="right" data-val="true" data-val-required="This field is required." id="Rotations" name="Rotations"class="form-select form-select-sm" >
+<option value="">-- Select --</option>
+<option value="21485">ARC Trublue Laser</option>
+<option value="20220">Laser-Argon</option>
+<option value="20215">Laser-CO2</option>
+<option value="20219">Laser-IPL</option>
+<option value="20216">Laser-KTP</option>
+<option value="20217">Laser-Nd-Yag</option>
+<option value="20218">Laser-Pulsed Dye</option>
+<option selected="selected" value="20214">N/A</option>
+<option value="20886">POC Ultrasound</option>
+<option value="20221">Robotic</option>
+<option value="20885">Sialendoscopy</option>
+</select>
+<span class="field-validation-valid" data-valmsg-for="Rotations" data-valmsg-replace="true"></span></div>
+								<div class="col-4 mb-3"><label class='form-label'>Role*</label><select data-bs-toggle="tooltip" data-bs-original-title="* Required"  data-bs-placement="right" data-val="true" data-val-required="This field is required." id="ResidentRoles" name="ResidentRoles"class="form-select form-select-sm" >
+<option value="">-- Select --</option>
+<option value="75">Assistant Surgeon</option>
+<option value="76">Resident Supervisor</option>
+<option value="77">Resident Surgeon</option>
+</select>
+<span class="field-validation-valid" data-valmsg-for="ResidentRoles" data-valmsg-replace="true"></span></div>
+							</div>
+                            <div class="row">
+                                <div class="col-4 mb-3"><label class='form-label'>Site*</label><select data-bs-toggle="tooltip" data-bs-original-title="* Required"  data-bs-placement="right" data-val="true" data-val-required="This field is required." id="Institutions" name="Institutions"class="form-select form-select-sm" >
+<option value="">-- Select --</option>
+<option value="13231">Children's Health - Children's Medical Center of Dallas</option>
+<option value="13236">Dallas County Hospital District-Parkland Memorial Hospital</option>
+<option value="13223">Dallas VA Medical Center</option>
+<option value="13467">University Hospital Zale Lipshy</option>
+<option value="19367">Other Site</option>
+</select>
+<span class="field-validation-valid" data-valmsg-for="Institutions" data-valmsg-replace="true"></span></div>
+                                <div class="col-4 mb-3"><label class='form-label'>Attending*</label><select data-bs-toggle="tooltip" data-bs-original-title="* Required"  data-bs-placement="right" data-val="true" data-val-required="This field is required." id="Attendings" name="Attendings"class="form-select form-select-sm" >
+<option value="">-- Select --</option>
+<option value="407754">Agan, Ashley</option>
+<option value="50414">Chan-Leveno, Teresa</option>
+<option value="22590">Childs, Lesley</option>
+<option value="485451">Chiu, Ilene</option>
+<option value="590786">Chorney, Stephen</option>
+<option value="410276">Cochran, Spencer</option>
+<option value="485374">Day, Andrew</option>
+<option value="616250">Dhar, Shumon</option>
+<option value="261010">Fancher, James</option>
+<option value="190308">Gilmore, Jim</option>
+<option value="485373">Gordin, Eli</option>
+<option value="407765">Halderman, Ashleigh</option>
+<option value="407769">Hunter, Jacob</option>
+<option value="42052">Isaacson, Brandon</option>
+<option value="539909">Ji, Hongzhao</option>
+<option value="230509">Johnson, Romaine</option>
+<option value="229787">Kutz, Joe</option>
+<option value="410156">Lam, Sam</option>
+<option value="407776">Landers, Steve</option>
+<option value="38918">Leach, Joseph</option>
+<option value="22774">Lee, Kenneth</option>
+<option value="559024">Lenes-Voit, Felicity</option>
+<option value="487938">Liu, Christopher</option>
+<option value="485450">Majumder, Ananya</option>
+<option value="410163">Mancini, Ronald</option>
+<option value="179549">Marple, Bradley</option>
+<option value="63185">Mau, Ted</option>
+<option value="127465">Mitchell, Ron</option>
+<option value="182123">Myers, Larry</option>
+<option value="182471">Newcomer, Mark</option>
+<option value="367051">Oltmann, Sarah</option>
+<option value="304279">Pease, John</option>
+<option value="410164">Pero, Colin</option>
+<option value="410159">Rihani, Jordan</option>
+<option value="410160">Rohrich, Rod</option>
+<option value="182577">Ryan, Matthew</option>
+<option value="6374">Schultz, Barbara</option>
+<option value="304269">St. John, Rachel</option>
+<option value="485375">Stankova, Lenka</option>
+<option value="6369">Sumer, Baran</option>
+<option value="410162">Thornton, James</option>
+<option value="485376">Tillman, Brittny</option>
+<option value="127999">Truelson, John</option>
+<option value="27713">Ulualp, Seckin</option>
+<option value="357044">Veling, Maria</option>
+<option value="19529">Weinberger, Debra</option>
+</select>
+<span class="field-validation-valid" data-valmsg-for="Attendings" data-valmsg-replace="true"></span></div>
+                            </div>
+							<div class="row">
+								<div class="col-4 mb-3"></div>
+								<div class="col-4 mb-3"><label class='form-label'>Patient Age*</label><select data-bs-toggle="tooltip" data-bs-original-title="* Required"  data-bs-placement="right" data-val="true" data-val-required="This field is required." id="PatientTypes" name="PatientTypes"class="form-select form-select-sm" >
+<option value="">-- Select --</option>
+<option value="110">Adolescent(>= 13-<18 yr)</option>
+<option selected="selected" value="111">Adult (>= 18 yrs)</option>
+<option value="112">Child(>= 3 - < 13 yrs)</option>
+<option value="113">Infant/Toddler(>=28-<3yr)</option>
+<option value="114">Neonate (<28 days)</option>
+</select>
+<span class="field-validation-valid" data-valmsg-for="PatientTypes" data-valmsg-replace="true"></span></div>
+								<div class="col-4 mb-3"></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-3 caseTypes" id="RRCCaseTypes">
+						
+					</div>
+				</div>
+			</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-12 mb-3">
+							<a href="javascript:;" data-bs-toggle="collapse" data-bs-target="#commentsContainer"><i class="icon-plus icon-fixed-width" aria-hidden="true"></i>Add Comments </a>
+							<div id="commentsContainer" class="collapse">
+								<label class='form-label'>Comments <a data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" data-bs-html="true" data-bs-content="Do not enter patient identifiable information, such as patient name or SSN."><i class="icon-info-sign text-primary" aria-hidden="true"></i></a></label><textarea maxlength="1000" class="form-control form-control-sm maxlength" cols="20" id="Comments" name="Comments" rows="2">
+</textarea maxlength="1000" class="form-control form-control-sm maxlength">
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+
+	</div>
+<input data-val="true" data-val-required="The Procedure Case Count field is required." id="ProcedureCaseCount" name="ProcedureCaseCount" type="hidden" value="1" /><input data-val="true" data-val-required="The Hold Selected Codes field is required." id="HoldSelectedCodes" name="HoldSelectedCodes" type="hidden" value="False" /><input data-val="true" data-val-required="The Is Procedure Case Template Enabled field is required." id="IsProcedureCaseTemplateEnabled" name="IsProcedureCaseTemplateEnabled" type="hidden" value="True" /><input data-val="true" data-val-required="The Specialty Id field is required." id="SpecialtyId" name="SpecialtyId" type="hidden" value="51" /><input data-val="true" data-val-number="The field Specialty Type Id must be a number." id="SpecialtyTypeId" name="SpecialtyTypeId" type="hidden" value="1" /><input data-val="true" data-val-required="The Search Term field is required." id="SearchTerm" name="SearchTerm" type="hidden" value="False" /><input data-val="true" data-val-required="The Program Id field is required." id="ProgramId" name="ProgramId" type="hidden" value="0" /><input id="SpecialtyCode" name="SpecialtyCode" type="hidden" value="280" /><input data-val="true" data-val-required="The C PTBased Case field is required." id="CPTBasedCase" name="CPTBasedCase" type="hidden" value="True" /><input data-val="true" data-val-required="The Type Based Case field is required." id="TypeBasedCase" name="TypeBasedCase" type="hidden" value="False" /><input id="SelectedCodes" name="SelectedCodes" type="hidden" value="" /><input id="SelectedCodeAttributes" name="SelectedCodeAttributes" type="hidden" value="" /><input data-val="true" data-val-required="The Specialty Uses Primary Credit field is required." id="SpecialtyUsesPrimaryCredit" name="SpecialtyUsesPrimaryCredit" type="hidden" value="False" /><input id="FavoriteListIdToAddCode" name="FavoriteListIdToAddCode" type="hidden" value="" /><input id="CodeIdToAddToFavList" name="CodeIdToAddToFavList" type="hidden" value="0" /><input id="TypeToCodeIdToAddToFavList" name="TypeToCodeIdToAddToFavList" type="hidden" value="0" /><input data-val="true" data-val-required="The Case Id field is required." id="CaseId" name="CaseId" type="hidden" value="0" /><input data-val="true" data-val-required="The Is Orthopaedic Subspecialty field is required." id="IsOrthopaedicSubspecialty" name="IsOrthopaedicSubspecialty" type="hidden" value="False" /><input id="CategoriesShortLabel" name="CategoriesShortLabel" type="hidden" value="Key Ind: " /><input data-val="true" data-val-required="The Is Specialty Contains Code Message field is required." id="IsSpecialtyContainsCodeMessage" name="IsSpecialtyContainsCodeMessage" type="hidden" value="False" /><input id="GetYearOptionsUrl" name="GetYearOptionsUrl" type="hidden" value="/ads/CaseLogs/CaseEntry/GetYearOptions" /><input data-get-ProcedureForDupeVerify-url="/ads/CaseLogs/CaseEntry/GetProcedureForDupeVerify" data-get-addcodeinfomessage-url="/ads/CaseLogs/CaseEntry/GetAddCodeInfoMessage" data-get-resident-roles-url="/ads/CaseLogs/Code/GetResidentRoles" id="HiddenUrlsLookups" name="HiddenUrls" type="hidden" value="" />	<div id="alert-container">
+		<div class="alert-tabs"></div>
+	</div>
+<!-- This partial is responsible for selecting the proper partials for codes entry for a given Specialty -->
+
+
+<div class="tabbable" id="tabbable">
+    <!-- Only required for left/right tabs -->
+    <ul class="nav nav-tabs search-tabs" id="tabs">
+            <li class="nav-item"><a href="#favorites" class="nav-link active" data-bs-toggle="tab">Favorites</a></li>
+                    <li class='nav-item'>
+                <a href="#area-type" class="nav-link" data-bs-toggle="tab">Area/Type/Code</a>                        </li>
+                    <li class="nav-item"><a href="#category" class="nav-link" data-bs-toggle="tab">Key Indicator</a></li>
+        
+    </ul>
+
+    <div class="tab-content">
+            <div class="tab-pane active" id="favorites">
+                <div class="listview">
+                    
+
+<script id="search-favorites-result-tmpl" type="text/x-jquery-tmpl">
+    {{if IsDiagnosisOrDiagnostic}}
+    <tr class="listview-row group-start warning" data-def-cat-short-names="${DefCatShortNames}" data-max-qty-allowed="${MaxQtyAllowed}">
+        <td>${CodeId}</td>
+        <td class="listview-cell text-center">{{if IsDiagnosisOrDiagnostic}}&nbsp;{{else}}${CodeValue}{{/if}}</td>
+        <td id="code-description">
+            <span id="code-description-text">${CodeDescription}</span>
+            <span id="def-cats"></span>
+            {{if HasCodeAttributes }}
+            <br />
+            {{each CodeAttributes}}
+            <label class="codeAttributeBtn checkbox inline padding-top-4px"><input type="checkbox" class="cbCodeAttribute codeAttributeBtn" value="${Id}" /> ${Name}</label>
+            {{/each}}
+            {{/if}}
+        </td>
+        <td>${AreaId}</td>
+        <td class="listview-cell">${AreaName}</td>
+        <td>${TypeId}</td>
+        <td class="listview-cell">${TypeName}</td>
+        <td>${TypeToCodeId}</td>
+        <td class="listview-cell maxqty text-center">
+            {{if MaxQtyAllowed > 1}}
+            <div class="input-group input-group-sm float-end">
+                <input id="txtcodeQuantity" type="text" class="form-control form-control-sm" value="" min="1" max="${MaxQtyAllowed}" maxlength="${MaxQtyAllowedNumChars}" oninput="codeCommon.handlers.onCodeQtyEntered(this)" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="left" data-bs-container="body" data-bs-content="Max of ${MaxQtyAllowed} allowed." />
+                <button id="btnCodeAdd" type="button" class="btn btn-sm btn-light input-group-text" disabled="disabled" onclick="sidePanelCodes.handlers.addCodeHandler(this, false)">Add</button>
+            </div>
+            {{else}}
+            <button type="button" class="btn btn-sm btn-light text-center" onclick="sidePanelCodes.handlers.addCodeHandler(this, false)">Add</button>
+            {{/if}}
+        </td>
+    </tr>
+    {{else}}
+<tr class="listview-row group-start" data-def-cat-short-names="${DefCatShortNames}" data-max-qty-allowed="${MaxQtyAllowed}">
+    <td>${CodeId}</td>
+    <td class="listview-cell text-center">{{if IsDiagnosisOrDiagnostic}}&nbsp;{{else}}${CodeValue}{{/if}}</td>
+    <td id="code-description">
+        <span id="code-description-text">${CodeDescription}</span>
+        <span id="def-cats"></span>
+        {{if HasCodeAttributes }}
+        <br />
+        {{each CodeAttributes}}
+        <label class="codeAttributeBtn checkbox inline padding-top-4px"><input type="checkbox" class="cbCodeAttribute codeAttributeBtn" value="${Id}" /> ${Name}</label>
+        {{/each}}
+        {{/if}}
+    </td>
+    <td>${AreaId}</td>
+    <td class="listview-cell">${AreaName}</td>
+    <td>${TypeId}</td>
+    <td class="listview-cell">${TypeName}</td>
+    <td>${TypeToCodeId}</td>
+    {{if MaxQtyAllowed > 1}}
+    <td class="listview-cell maxqty text-center">
+        <div class="input-group input-group-sm float-end">
+            <input id="txtcodeQuantity" type="text" class="form-control form-control-sm" value="" min="1" max="${MaxQtyAllowed}" maxlength="${MaxQtyAllowedNumChars}" oninput="codeCommon.handlers.onCodeQtyEntered(this)" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="left" data-bs-container="body" data-bs-content="Max of ${MaxQtyAllowed} allowed." />
+            <button id="btnCodeAdd" type="button" class="btn btn-sm btn-light input-group-text" disabled="disabled" onclick="sidePanelCodes.handlers.addCodeHandler(this, false)">Add</button>
+        </div>
+    </td>
+    {{else}}
+    <td class="listview-cell maxqty text-center">
+            <button type="button" class="btn btn-sm btn-light text-center" onclick="sidePanelCodes.handlers.addCodeHandler(this, false)">Add</button>
+    </td>
+    {{/if}}
+</tr>
+    {{/if}}
+</script>
+
+<div class="listview-options-bar">
+    <div class="listview-options-bar-filters">
+        <div class="row">
+            <div class="col-3 mb-3"><label class='form-label'>Favorite List</label><select id="FavoriteLists" name="FavoriteLists"class="form-select form-select-sm" >
+<option value="">-- Select --</option>
+<option data-isusermaintained="False" data-isrotationbased="False" value="21371237">You</option>
+<option data-isusermaintained="False" data-isrotationbased="False" value="21324549">Your program</option>
+<option data-isusermaintained="False" data-isrotationbased="False" value="21323274">Your specialty</option>
+</select>
+</div>
+                <div class="col-3 mb-3">
+                    <label class="form-label">&nbsp;</label>
+                    <button class="btn btn-sm btn-light" type="button" id="searchByFavoriteListButton" title="Search" onclick="codeSearchByFavs.handlers.performSearch(this)"><i class="icon-search" aria-hidden="true"></i></button>
+                </div>
+        </div>
+    </div>
+</div>
+
+<div id="code-search-favorites">
+    <table id="codes-by-favorites-table" class="table table-bordered table-hover table-striped listview-bootstrap">
+        <thead>
+            <tr>
+                <th class="hidden"></th>
+                <th class="col-1">
+                    Code
+                </th>
+                <th class="col-4">
+                    Description
+                </th>
+                <th class="hidden"></th>
+                <th class="col-2">
+                    Area
+                </th>
+                <th class="hidden"></th>
+                <th class="col-3">
+                    Type
+                </th>
+                <th class="hidden"></th>
+                <th class="text-end col-1 case-logs-add-col">
+                        <a href="javascript:;" class="btn btn-sm btn-light no-wrap text-end disabled" id="addAllFavoriteCodesButton" title="Add all favorite codes to this case." onclick="sidePanelCodes.handlers.onAddAllCodesClick(this)"><span class="icon-plus"></span> Add All</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="code-search-favorites-body">
+            <tr>
+                <td colspan="9">
+                    &nbsp;
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<input data-get-favorite-codes-url="/ads/CaseLogs/Code/GetFavoriteCodes" id="HiddenUrlsCodeSearchByFavorites" name="HiddenUrls" type="hidden" value="" />
+                </div>
+            </div>
+        <div class='tab-pane' id="area-type">
+            <div class="listview">
+                
+<input id="GetSelectedCodePartial" name="GetSelectedCodePartial" type="hidden" value="/ads/CaseLogs/Code/GetSelectedCodePartial" />
+<div class="listview-options-bar">
+    <div class="listview-options-bar-filters">
+            <div class="row">
+                    <div class="col-3 mb-3"><label class='form-label'>Area</label><select id="Areas" name="Areas"class="form-select form-select-sm" >
+<option value="">All</option>
+<option value="2402">COVID-19</option>
+<option value="254">General/Peds - Congenital Anomalies</option>
+<option value="256">General/Peds - Endoscopy</option>
+<option value="257">General/Peds - Esophagus</option>
+<option value="255">General/Peds - Larynx</option>
+<option value="2335">General/Peds - Needle Biopsy</option>
+<option value="259">General/Peds - Nose</option>
+<option value="2336">General/Peds - Oral Cavity</option>
+<option value="258">General/Peds - Pharynx</option>
+<option value="2334">General/Peds - Sinus</option>
+<option value="2337">General/Peds - Sleep</option>
+<option value="247">Head & Neck - Ear</option>
+<option value="249">Head & Neck - Endocrine</option>
+<option value="251">Head & Neck - Larynx/Trachea</option>
+<option value="245">Head & Neck - Lips</option>
+<option value="248">Head & Neck - Neck</option>
+<option value="244">Head & Neck - Nose and Maxilla</option>
+<option value="246">Head & Neck - Oral Cavity</option>
+<option value="250">Head & Neck - Pharynx/Esophagus</option>
+<option value="243">Head & Neck - Salivary Gland Excision</option>
+<option value="2326">Otology/External Ear</option>
+<option value="2327">Otology/Inner Ear</option>
+<option value="2328">Otology/Middle Ear</option>
+<option value="2329">Otology/Skull Base</option>
+<option value="2338">Patient Management</option>
+<option value="2330">Plastic/Facial Appearance</option>
+<option value="2331">Plastic/Reconstruction</option>
+<option value="2332">Plastic/Resection</option>
+<option value="2333">Plastic/Trauma</option>
+</select>
+</div>
+                <div class="col-3 mb-3"><label class='form-label'>Type</label><select id="Types" name="Types"class="form-select form-select-sm" >
+<option value="">All</option>
+<option value="1113">Anterior skull base</option>
+<option value="1163">Blepharoplasty</option>
+<option value="1199">Bronchoscopy w/wo intervention</option>
+<option value="1162">Browlift</option>
+<option value="1188">Choanal atresia</option>
+<option value="1180">Cleft repair - lip</option>
+<option value="1181">Cleft repair - palate</option>
+<option value="1157">Cochlear implant</option>
+<option value="1154">Cochleo/vestibular nerve section</option>
+<option value="12401">Complications of otitis media</option>
+<option value="12400">Complications of sinusitis</option>
+<option value="1183">Congenital masses</option>
+<option value="1215">Control of epistaxis</option>
+<option value="1216">Dacryocystorhinostomy</option>
+<option value="1206">Diverticulum repair</option>
+<option value="1143">Ear canal surgery</option>
+<option value="1153">Endolymphatic sac operation</option>
+<option value="1220">Endoscopic sinus surgery</option>
+<option value="1205">Esophagoscopy w/wo intervention</option>
+<option value="1133">Esophagus</option>
+<option value="1155">Excision glomus tumor</option>
+<option value="1114">Excision lip</option>
+<option value="1221">Extended endoscopic operations</option>
+<option value="1218">External approaches to sinuses</option>
+<option value="1120">External ear</option>
+<option value="1151">Facial nerve decompression/repair</option>
+<option value="12397">Fine needle/core</option>
+<option value="1201">Flex laryngoscopy w/wo interventioin</option>
+<option value="1118">Floor of mouth resection</option>
+<option value="1177">Free microvascular flap</option>
+<option value="1168">Frontal sinus fracture</option>
+<option value="1117">Glossectomy</option>
+<option value="1217">Incision/excision nose, non-sinus</option>
+<option value="1222">Incision/excision oral cavity</option>
+<option value="12399">Infant with hearing loss</option>
+<option value="12398">Infant with stridor</option>
+<option value="1152">Labyrinth surgery</option>
+<option value="1190">Laryngeal fracture</option>
+<option value="1191">Laryngoplasty</option>
+<option value="1166">Liposuction</option>
+<option value="12391">Local flap</option>
+<option value="1122">Major cervical structure dissection</option>
+<option value="1171">Mandible fracture</option>
+<option value="1149">Mastoidectomy</option>
+<option value="1112">Maxilla</option>
+<option value="1156">Middle and posterior fossa skull base surgery</option>
+<option value="1170">Midface fracture</option>
+<option value="12396">Misc middle ear procedures</option>
+<option value="1146">Myringotomy/tympanostomy</option>
+<option value="1169">Nasal fracture</option>
+<option value="1123">Neck dissection</option>
+<option value="1126">Neck mass excision without formal neck dissection</option>
+<option value="1174">Non-skin graft (cartilage, nerve, composite)</option>
+<option value="12395">Office labyrinth procedure</option>
+<option value="1214">Oroantral/oronasal fistula repair</option>
+<option value="1209">Oropharynx procedures</option>
+<option value="1158">Osseointegrated implant</option>
+<option value="1148">Ossicular chain reconstruction</option>
+<option value="1164">Other eyelid procedures</option>
+<option value="1159">Otoplasty</option>
+<option value="1130">Parathyroidectomy</option>
+<option value="1107">Parotid</option>
+<option value="1139">Partial laryngectomy, external or endoscopic</option>
+<option value="12876">Patient assessment and care for COVID-19</option>
+<option value="12855">Patient testing for COVID-19</option>
+<option value="1175">Pedicled flap</option>
+<option value="1134">Pharynx</option>
+<option value="1211">Polysomnography & sleep testing</option>
+<option value="1145">Removal of material from ear</option>
+<option value="1167">Repair complex laceration(all sites inc intraoral)</option>
+<option value="1182">Resection of skin lesions & primary closure</option>
+<option value="1165">Resurfacing (dermabrasion, chem peel, laser)</option>
+<option value="1111">Rhinectomy</option>
+<option value="1160">Rhinoplasty</option>
+<option value="1161">Rhytidectomy</option>
+<option value="1197">Rigid laryngoscopy & intervention</option>
+<option value="1195">Rigid laryngoscopy w/wo biopsy</option>
+<option value="12393">Salivary gland (non-excision)</option>
+<option value="1212">Septoplasty</option>
+<option value="1172">Skin grafts</option>
+<option value="12394">Sleep surgery</option>
+<option value="1150">Stapes surgery</option>
+<option value="1178">Static sling - muscle transfer</option>
+<option value="1110">Sublingual gland</option>
+<option value="1108">Submandibular gland</option>
+<option value="1121">Temporal bone resection</option>
+<option value="1129">Thyroidectomy</option>
+<option value="1207">Tonsils/adenoid pad</option>
+<option value="1140">Total laryngectomy</option>
+<option value="1136">Trachea</option>
+<option value="1135">Tracheostomy</option>
+<option value="1213">Turbinate surgery</option>
+<option value="1147">Tympanoplasty</option>
+<option value="12392">Wound debridement</option>
+</select>
+</div>
+                <div class="col-3 mb-3">
+                    <label class='form-label'>Code or Keyword <a data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" data-bs-html="true" data-bs-content="Enter at least 3 characters to search."><i class="icon-info-sign text-primary" aria-hidden="true"></i></a></label>
+                    <input class="form-control form-control-sm" id="CodeDescription" maxlength="64" name="CodeDescription" type="text" value="" />
+                </div>
+
+                    <div class="col-3 mb-3">
+                        <label class="form-label">&nbsp;</label>
+                        <button class="btn btn-sm btn-light" type="button" id="searchByAreaTypeButton" title="Search" onclick="codeSearchByAreaType.handlers.performSearchByAreaType(this)"><i class="icon-search" aria-hidden="true"></i></button>
+                    </div>
+            </div>
+    </div>
+</div>
+
+<div id="code-search-areatype">
+    <table id="codes-by-areatype-table" class="table table-bordered table-hover table-striped listview-bootstrap">
+            <thead>
+                <tr>
+
+                    <th class="col-1">Code</th>
+                    <th class="col-4">Description</th>
+                    <th class="col-2">Area</th>
+                    <th class="col-3">Type</th>
+                    <th class="col-1">Fav</th>
+                    <th class="col-1 unselectable-th case-logs-add-col"></th>
+                </tr>
+            </thead>
+            <tbody id="code-search-area-type-body">
+                <tr>
+                    <td colspan="6">
+                        &nbsp;
+                    </td>
+                </tr>
+            </tbody>
+    </table>
+</div>
+
+<input class="form-control form-control-sm" style="display:none;" id="TypetoAreaMapping" value='[{"TypeId":"12876","TypeName":"Patient assessment and care for COVID-19","AreaId":"2402","AreaName":"COVID-19","RRCClassId":""},{"TypeId":"12855","TypeName":"Patient testing for COVID-19","AreaId":"2402","AreaName":"COVID-19","RRCClassId":""},{"TypeId":"1188","TypeName":"Choanal atresia","AreaId":"254","AreaName":"General/Peds - Congenital Anomalies","RRCClassId":""},{"TypeId":"1183","TypeName":"Congenital masses","AreaId":"254","AreaName":"General/Peds - Congenital Anomalies","RRCClassId":""},{"TypeId":"1199","TypeName":"Bronchoscopy w/wo intervention","AreaId":"256","AreaName":"General/Peds - Endoscopy","RRCClassId":""},{"TypeId":"1201","TypeName":"Flex laryngoscopy w/wo interventioin","AreaId":"256","AreaName":"General/Peds - Endoscopy","RRCClassId":""},{"TypeId":"1197","TypeName":"Rigid laryngoscopy & intervention","AreaId":"256","AreaName":"General/Peds - Endoscopy","RRCClassId":""},{"TypeId":"1195","TypeName":"Rigid laryngoscopy w/wo biopsy","AreaId":"256","AreaName":"General/Peds - Endoscopy","RRCClassId":""},{"TypeId":"1206","TypeName":"Diverticulum repair","AreaId":"257","AreaName":"General/Peds - Esophagus","RRCClassId":""},{"TypeId":"1205","TypeName":"Esophagoscopy w/wo intervention","AreaId":"257","AreaName":"General/Peds - Esophagus","RRCClassId":""},{"TypeId":"1190","TypeName":"Laryngeal fracture","AreaId":"255","AreaName":"General/Peds - Larynx","RRCClassId":""},{"TypeId":"1191","TypeName":"Laryngoplasty","AreaId":"255","AreaName":"General/Peds - Larynx","RRCClassId":""},{"TypeId":"12397","TypeName":"Fine needle/core","AreaId":"2335","AreaName":"General/Peds - Needle Biopsy","RRCClassId":""},{"TypeId":"1215","TypeName":"Control of epistaxis","AreaId":"259","AreaName":"General/Peds - Nose","RRCClassId":""},{"TypeId":"1217","TypeName":"Incision/excision nose, non-sinus","AreaId":"259","AreaName":"General/Peds - Nose","RRCClassId":""},{"TypeId":"1212","TypeName":"Septoplasty","AreaId":"259","AreaName":"General/Peds - Nose","RRCClassId":""},{"TypeId":"1213","TypeName":"Turbinate surgery","AreaId":"259","AreaName":"General/Peds - Nose","RRCClassId":""},{"TypeId":"1222","TypeName":"Incision/excision oral cavity","AreaId":"2336","AreaName":"General/Peds - Oral Cavity","RRCClassId":""},{"TypeId":"1214","TypeName":"Oroantral/oronasal fistula repair","AreaId":"2336","AreaName":"General/Peds - Oral Cavity","RRCClassId":""},{"TypeId":"12393","TypeName":"Salivary gland (non-excision)","AreaId":"2336","AreaName":"General/Peds - Oral Cavity","RRCClassId":""},{"TypeId":"1209","TypeName":"Oropharynx procedures","AreaId":"258","AreaName":"General/Peds - Pharynx","RRCClassId":""},{"TypeId":"1207","TypeName":"Tonsils/adenoid pad","AreaId":"258","AreaName":"General/Peds - Pharynx","RRCClassId":""},{"TypeId":"1216","TypeName":"Dacryocystorhinostomy","AreaId":"2334","AreaName":"General/Peds - Sinus","RRCClassId":""},{"TypeId":"1220","TypeName":"Endoscopic sinus surgery","AreaId":"2334","AreaName":"General/Peds - Sinus","RRCClassId":""},{"TypeId":"1221","TypeName":"Extended endoscopic operations","AreaId":"2334","AreaName":"General/Peds - Sinus","RRCClassId":""},{"TypeId":"1218","TypeName":"External approaches to sinuses","AreaId":"2334","AreaName":"General/Peds - Sinus","RRCClassId":""},{"TypeId":"1211","TypeName":"Polysomnography & sleep testing","AreaId":"2337","AreaName":"General/Peds - Sleep","RRCClassId":""},{"TypeId":"12394","TypeName":"Sleep surgery","AreaId":"2337","AreaName":"General/Peds - Sleep","RRCClassId":""},{"TypeId":"1120","TypeName":"External ear","AreaId":"247","AreaName":"Head & Neck - Ear","RRCClassId":""},{"TypeId":"1130","TypeName":"Parathyroidectomy","AreaId":"249","AreaName":"Head & Neck - Endocrine","RRCClassId":""},{"TypeId":"1129","TypeName":"Thyroidectomy","AreaId":"249","AreaName":"Head & Neck - Endocrine","RRCClassId":""},{"TypeId":"1139","TypeName":"Partial laryngectomy, external or endoscopic","AreaId":"251","AreaName":"Head & Neck - Larynx/Trachea","RRCClassId":""},{"TypeId":"1140","TypeName":"Total laryngectomy","AreaId":"251","AreaName":"Head & Neck - Larynx/Trachea","RRCClassId":""},{"TypeId":"1136","TypeName":"Trachea","AreaId":"251","AreaName":"Head & Neck - Larynx/Trachea","RRCClassId":""},{"TypeId":"1135","TypeName":"Tracheostomy","AreaId":"251","AreaName":"Head & Neck - Larynx/Trachea","RRCClassId":""},{"TypeId":"1114","TypeName":"Excision lip","AreaId":"245","AreaName":"Head & Neck - Lips","RRCClassId":""},{"TypeId":"1122","TypeName":"Major cervical structure dissection","AreaId":"248","AreaName":"Head & Neck - Neck","RRCClassId":""},{"TypeId":"1123","TypeName":"Neck dissection","AreaId":"248","AreaName":"Head & Neck - Neck","RRCClassId":""},{"TypeId":"1126","TypeName":"Neck mass excision without formal neck dissection","AreaId":"248","AreaName":"Head & Neck - Neck","RRCClassId":""},{"TypeId":"1113","TypeName":"Anterior skull base","AreaId":"244","AreaName":"Head & Neck - Nose and Maxilla","RRCClassId":""},{"TypeId":"1112","TypeName":"Maxilla","AreaId":"244","AreaName":"Head & Neck - Nose and Maxilla","RRCClassId":""},{"TypeId":"1111","TypeName":"Rhinectomy","AreaId":"244","AreaName":"Head & Neck - Nose and Maxilla","RRCClassId":""},{"TypeId":"1118","TypeName":"Floor of mouth resection","AreaId":"246","AreaName":"Head & Neck - Oral Cavity","RRCClassId":""},{"TypeId":"1117","TypeName":"Glossectomy","AreaId":"246","AreaName":"Head & Neck - Oral Cavity","RRCClassId":""},{"TypeId":"1133","TypeName":"Esophagus","AreaId":"250","AreaName":"Head & Neck - Pharynx/Esophagus","RRCClassId":""},{"TypeId":"1134","TypeName":"Pharynx","AreaId":"250","AreaName":"Head & Neck - Pharynx/Esophagus","RRCClassId":""},{"TypeId":"1107","TypeName":"Parotid","AreaId":"243","AreaName":"Head & Neck - Salivary Gland Excision","RRCClassId":""},{"TypeId":"1110","TypeName":"Sublingual gland","AreaId":"243","AreaName":"Head & Neck - Salivary Gland Excision","RRCClassId":""},{"TypeId":"1108","TypeName":"Submandibular gland","AreaId":"243","AreaName":"Head & Neck - Salivary Gland Excision","RRCClassId":""},{"TypeId":"5162","TypeName":"Non-Tracked Codes","AreaId":"944","AreaName":"Non-Tracked Codes","RRCClassId":""},{"TypeId":"1143","TypeName":"Ear canal surgery","AreaId":"2326","AreaName":"Otology/External Ear","RRCClassId":""},{"TypeId":"1158","TypeName":"Osseointegrated implant","AreaId":"2326","AreaName":"Otology/External Ear","RRCClassId":""},{"TypeId":"1145","TypeName":"Removal of material from ear","AreaId":"2326","AreaName":"Otology/External Ear","RRCClassId":""},{"TypeId":"1157","TypeName":"Cochlear implant","AreaId":"2327","AreaName":"Otology/Inner Ear","RRCClassId":""},{"TypeId":"1154","TypeName":"Cochleo/vestibular nerve section","AreaId":"2327","AreaName":"Otology/Inner Ear","RRCClassId":""},{"TypeId":"1153","TypeName":"Endolymphatic sac operation","AreaId":"2327","AreaName":"Otology/Inner Ear","RRCClassId":""},{"TypeId":"1152","TypeName":"Labyrinth surgery","AreaId":"2327","AreaName":"Otology/Inner Ear","RRCClassId":""},{"TypeId":"12395","TypeName":"Office labyrinth procedure","AreaId":"2327","AreaName":"Otology/Inner Ear","RRCClassId":""},{"TypeId":"1149","TypeName":"Mastoidectomy","AreaId":"2328","AreaName":"Otology/Middle Ear","RRCClassId":""},{"TypeId":"12396","TypeName":"Misc middle ear procedures","AreaId":"2328","AreaName":"Otology/Middle Ear","RRCClassId":""},{"TypeId":"1146","TypeName":"Myringotomy/tympanostomy","AreaId":"2328","AreaName":"Otology/Middle Ear","RRCClassId":""},{"TypeId":"1148","TypeName":"Ossicular chain reconstruction","AreaId":"2328","AreaName":"Otology/Middle Ear","RRCClassId":""},{"TypeId":"1150","TypeName":"Stapes surgery","AreaId":"2328","AreaName":"Otology/Middle Ear","RRCClassId":""},{"TypeId":"1147","TypeName":"Tympanoplasty","AreaId":"2328","AreaName":"Otology/Middle Ear","RRCClassId":""},{"TypeId":"1155","TypeName":"Excision glomus tumor","AreaId":"2329","AreaName":"Otology/Skull Base","RRCClassId":""},{"TypeId":"1151","TypeName":"Facial nerve decompression/repair","AreaId":"2329","AreaName":"Otology/Skull Base","RRCClassId":""},{"TypeId":"1156","TypeName":"Middle and posterior fossa skull base surgery","AreaId":"2329","AreaName":"Otology/Skull Base","RRCClassId":""},{"TypeId":"1121","TypeName":"Temporal bone resection","AreaId":"2329","AreaName":"Otology/Skull Base","RRCClassId":""},{"TypeId":"12401","TypeName":"Complications of otitis media","AreaId":"2338","AreaName":"Patient Management","RRCClassId":""},{"TypeId":"12400","TypeName":"Complications of sinusitis","AreaId":"2338","AreaName":"Patient Management","RRCClassId":""},{"TypeId":"12399","TypeName":"Infant with hearing loss","AreaId":"2338","AreaName":"Patient Management","RRCClassId":""},{"TypeId":"12398","TypeName":"Infant with stridor","AreaId":"2338","AreaName":"Patient Management","RRCClassId":""},{"TypeId":"1163","TypeName":"Blepharoplasty","AreaId":"2330","AreaName":"Plastic/Facial Appearance","RRCClassId":""},{"TypeId":"1162","TypeName":"Browlift","AreaId":"2330","AreaName":"Plastic/Facial Appearance","RRCClassId":""},{"TypeId":"1166","TypeName":"Liposuction","AreaId":"2330","AreaName":"Plastic/Facial Appearance","RRCClassId":""},{"TypeId":"1164","TypeName":"Other eyelid procedures","AreaId":"2330","AreaName":"Plastic/Facial Appearance","RRCClassId":""},{"TypeId":"1165","TypeName":"Resurfacing (dermabrasion, chem peel, laser)","AreaId":"2330","AreaName":"Plastic/Facial Appearance","RRCClassId":""},{"TypeId":"1160","TypeName":"Rhinoplasty","AreaId":"2330","AreaName":"Plastic/Facial Appearance","RRCClassId":""},{"TypeId":"1161","TypeName":"Rhytidectomy","AreaId":"2330","AreaName":"Plastic/Facial Appearance","RRCClassId":""},{"TypeId":"1180","TypeName":"Cleft repair - lip","AreaId":"2331","AreaName":"Plastic/Reconstruction","RRCClassId":""},{"TypeId":"1181","TypeName":"Cleft repair - palate","AreaId":"2331","AreaName":"Plastic/Reconstruction","RRCClassId":""},{"TypeId":"1177","TypeName":"Free microvascular flap","AreaId":"2331","AreaName":"Plastic/Reconstruction","RRCClassId":""},{"TypeId":"12391","TypeName":"Local flap","AreaId":"2331","AreaName":"Plastic/Reconstruction","RRCClassId":""},{"TypeId":"1174","TypeName":"Non-skin graft (cartilage, nerve, composite)","AreaId":"2331","AreaName":"Plastic/Reconstruction","RRCClassId":""},{"TypeId":"1159","TypeName":"Otoplasty","AreaId":"2331","AreaName":"Plastic/Reconstruction","RRCClassId":""},{"TypeId":"1175","TypeName":"Pedicled flap","AreaId":"2331","AreaName":"Plastic/Reconstruction","RRCClassId":""},{"TypeId":"1172","TypeName":"Skin grafts","AreaId":"2331","AreaName":"Plastic/Reconstruction","RRCClassId":""},{"TypeId":"1178","TypeName":"Static sling - muscle transfer","AreaId":"2331","AreaName":"Plastic/Reconstruction","RRCClassId":""},{"TypeId":"12392","TypeName":"Wound debridement","AreaId":"2331","AreaName":"Plastic/Reconstruction","RRCClassId":""},{"TypeId":"1182","TypeName":"Resection of skin lesions & primary closure","AreaId":"2332","AreaName":"Plastic/Resection","RRCClassId":""},{"TypeId":"1168","TypeName":"Frontal sinus fracture","AreaId":"2333","AreaName":"Plastic/Trauma","RRCClassId":""},{"TypeId":"1171","TypeName":"Mandible fracture","AreaId":"2333","AreaName":"Plastic/Trauma","RRCClassId":""},{"TypeId":"1170","TypeName":"Midface fracture","AreaId":"2333","AreaName":"Plastic/Trauma","RRCClassId":""},{"TypeId":"1169","TypeName":"Nasal fracture","AreaId":"2333","AreaName":"Plastic/Trauma","RRCClassId":""},{"TypeId":"1167","TypeName":"Repair complex laceration(all sites inc intraoral)","AreaId":"2333","AreaName":"Plastic/Trauma","RRCClassId":""}]' />
+
+<input data-get-areas-by-rrcclass-url="/ads/CaseLogs/Code/GetAreasByRRCClassId" data-get-areas-url="/ads/CaseLogs/Code/GetAreas" data-get-codes-url="/ads/CaseLogs/Code/GetCodes" data-get-mappings-url="/ads/CaseLogs/Code/GetMappings" data-get-types-by-rrcclass-url="/ads/CaseLogs/Code/GetTypesByRRCClassId" data-get-types-url="/ads/CaseLogs/Code/GetTypes" id="HiddenUrlsCodeSearchByAreaType" name="HiddenUrls" type="hidden" value="" />
+
+<input type="hidden" id="lastSearchedArea" />
+<input type="hidden" id="lastSearchedType" />
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {
+        // Trigger the search (after a delay) as the user types in a keyword
+        $('#area-type :text').on('keyup', function () {
+            clearTimeout($.data(this, 'timer'));
+            var wait = setTimeout(codeSearchByAreaType.handlers.performSearchByAreaType, 750);
+            $(this).data('timer', wait);
+        });
+    });
+</script>
+
+            </div>
+        </div>
+        <div class="tab-pane" id="search-terms">
+            <div class="listview">
+                
+<div class="listview-options-bar">
+    <div class="listview-options-bar-filters">
+        <div class="row">
+            <div class="col-3 mb-3"><label class="form-label" for="SearchTermString">Search Term</label> 
+            <select id="SearchTermString" class="form-select form-select-sm" name="SearchTermString"></select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="code-searchterm-code">
+    <table id="codes-by-searchterm-table" class="table table-bordered table-striped table-hover listview-bootstrap">
+            <thead>
+                <tr>
+
+                    <th class="col-1">Code</th>
+                    <th class="col-4">Description</th>
+                    <th class="col-2">Area</th>
+                    <th class="col-3">Type</th>
+                    <th class="col-1">Fav</th>
+                    <th class="col-1 unselectable-th case-logs-add-col"></th>
+                </tr>
+            </thead>
+            <tbody id="code-searchterm-body">
+                <tr>
+                    <td colspan="6">
+                        &nbsp;
+                    </td>
+                </tr>
+            </tbody>
+    </table>
+</div>
+<input data-get-codes-url="/ads/CaseLogs/Code/GetCodesWithSearchTerm" data-search-term-search="/ads/CaseLogs/Code/SearchTermSearch" id="HiddenUrlsCodeSearchBySearchTerm" name="HiddenUrls" type="hidden" value="" />
+            </div>
+        </div>
+        <div class="tab-pane" id="category">
+            <div class="listview">
+                
+<div class="listview-options-bar">
+    <div class="listview-options-bar-filters">
+        <div class="row">
+            <div class="col-3 mb-3"><label class='form-label'>Key Indicator</label><select id="Categories" name="Categories"class="form-select form-select-sm selectable" >
+<option value="">-- Select --</option>
+<option value="55">Airway – Pediatric and Adult</option>
+<option value="56">Bronchoscopy</option>
+<option value="62">CMF</option>
+<option value="57">Congenital Masses</option>
+<option value="59">Flaps and Grafts</option>
+<option value="63">Mastoidectomy (all types)</option>
+<option value="64">Neck Dissection (all types)</option>
+<option value="65">Oral cavity</option>
+<option value="68">Ossicular chain surgery</option>
+<option value="66">Parotidectomy</option>
+<option value="67">Rhinoplasty</option>
+<option value="58">SInus</option>
+<option value="69">Thyroid/Parathyroidectomy</option>
+<option value="70">Tympanoplasty (all types)</option>
+</select>
+</div>
+            <div class="col-3 mb-3">
+                <label class='form-label'>Code or Keyword <a data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" data-bs-html="true" data-bs-content="Enter at least 3 characters to search."><i class="icon-info-sign text-primary" aria-hidden="true"></i></a></label>
+                <input class="form-control form-control-sm" id="CategoryCodeDescription" name="CategoryCodeDescription" type="text" maxlength="64" value=""/>
+            </div>
+                <div class="col-3 mb-3">
+                    <label class="form-label">&nbsp;</label>
+                    <button class="btn btn-sm btn-light" type="button" id="searchByDefCatButton" title="Search" onclick="codeSearchByDefCat.handlers.performSearchByDefCat(this)"><i class="icon-search" aria-hidden="true"></i></button>
+                </div>
+        </div>
+    </div>
+</div>
+
+<div id="code-search-defcategory">
+    <table id="codes-by-defcategory-table" class="table table-bordered table-striped table-hover listview-bootstrap">
+            <thead>
+                <tr>
+                    <th class="col-1">Code</th>
+                    <th class="col-4">Description</th>
+                    <th class="col-2">Area</th>
+                    <th class="col-3">Type</th>
+                    <th class="col-1">Fav</th>
+                    <th class="col-1 unselectable-th case-logs-add-col"></th>
+                </tr>
+            </thead>
+            <tbody id="code-search-defcat-body">
+                <tr>
+                    <td colspan="6">
+                        &nbsp;
+                    </td>
+                </tr>
+            </tbody>
+    </table>
+</div>
+
+<input data-get-codes-url="/ads/CaseLogs/Code/GetCodesForDefinedCategorySearch" id="HiddenUrlsCodeSearchByDefCategory" name="HiddenUrls" type="hidden" value="" />
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {
+        // Trigger the search (after a delay) as the user types in a keyword
+        $('#category :text').on('keyup', function () {
+            clearTimeout($.data(this, 'timer'));
+            var wait = setTimeout(codeSearchByDefCat.handlers.performSearchByDefCat, 750);
+            $(this).data('timer', wait);
+        });
+    });
+</script>
+            </div>
+        </div>
+        <div class="tab-pane" id="selected-codes">
+            <div class="listview">
+                
+<input data-delete-favorite-code-url="/ads/CaseLogs/ManageFavorites/DeleteFavoriteCode" id="HiddenUrlsSelectedCodes" name="HiddenUrls" type="hidden" value="" />
+
+
+<script id="selected-fav-codes-tmpl" type="text/x-jquery-tmpl">
+    <tr class="{{if IsDiagnosisOrDiagnostic}}warning{{/if}}">
+        <td class="ui-helper-hidden" id="CodeId">${CodeId}</td>
+        <td class="listview-cell text-center" id="CodeValue">{{if IsDiagnosisOrDiagnostic}}&nbsp;{{else}}${CodeValue}{{/if}}</td>
+        <td class="listview-cell" id="CodeDescription">${CodeDescription}</td>
+        <td class="ui-helper-hidden" id="AreaId">${AreaId}</td>
+        <td class="listview-cell">${AreaName}</td>
+        <td class="ui-helper-hidden" id="AreaName">${AreaName}</td>
+        <td class="ui-helper-hidden" id="TypeId">${TypeId}</td>
+        <td class="listview-cell">${TypeName}</td>
+        <td class="ui-helper-hidden" id="TypeName">${TypeName}</td>
+        <td class="ui-helper-hidden" id="TypeToCodeId">${TypeToCodeId}</td>
+        <td class="ui-helper-hidden" id="DefCatShortNames">${DefCatShortNames}</td>
+        <td class="ui-helper-hidden" id="FavoriteId">${FavoriteId}</td>
+        <td class="listview-cell text-end">${CodeQty}<button type="button" class="btn btn-sm btn-danger" onclick="manageFavs.handlers.onRemoveCodeClick(this)"><span class="icon-trash"></span></button></td>
+    </tr>
+</script>
+
+<div id="selected-codes" style="max-height: 430px; overflow-y: auto;">
+    <table id="selected-codes-table" class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th class="listview-header-cell text-center"><span>Code</span></th>
+                <th class="listview-header-cell"><span>Description</span></th>
+                <th class="listview-header-cell"><span>Area</span></th>
+                <th class="listview-header-cell"><span>Type</span></th>
+                <th class="listview-header-cell"><span></span></th>
+            </tr>
+        </thead>
+
+        <tbody id="selected-codes-body">
+                <tr class="listview-empty-row">
+                    <td class="listview-empty-cell" colspan="7">0 codes.</td>
+                </tr>
+        </tbody>
+    </table>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="add-code-to-favorite-list-tmpl" class="ui-helper-hidden">
+
+
+
+    <div class="tabbable" id="tabbable">
+        
+        <ul class="nav nav-tabs" id="tabs" role="tablist">
+            <li class="nav-item" id="selFavTab"><a href="#selFav" class="nav-link disabled" data-bs-toggle="tab">Select a Favorite List</a></li>
+            <li class="nav-item" id="addFavTab"><a href="#addFav" class="nav-link active" data-bs-toggle="tab">Add a Favorite List</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class='tab-pane' id="selFav" role="tabpanel">
+                <label class="form-label">Favorite List Name</label>
+                <select class="form-select form-select-sm" id="FavoriteListInDialogBoxSelectedId" name="FavoriteListInDialogBoxSelectedId" onchange="caseEntryApp.handlers.SetFavoriteListId(this)"></select>
+            </div>
+
+            <div class='tab-pane active' id="addFav" role="tabpanel">
+                <label class="form-label">Favorite List Name</label>
+                <input class="form-control form-control-sm maxlength" id="NewFavoriteListName" maxlength="64" name="NewFavoriteListName" type="text" value="" />
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<input id="NewFavListIds" name="NewFavListIds" type="hidden" value="" />
+<input id="NewFavListNames" name="NewFavListNames" type="hidden" value="" />
+
+
+
+<input data-add-code-to-favorite-list-url="/ads/CaseLogs/Favorites/AddCodeToFavoriteList" data-add-favorite-list-and-code-url="/ads/CaseLogs/Favorites/AddFavoriteListAndCode" id="HiddenUrls" name="HiddenUrls" type="hidden" value="" />
+
+<input id="SelectedCodesTab" name="SelectedCodesTab" type="hidden" value="" />
+<input data-val="true" data-val-required="The Is Favorites Enabled field is required." id="IsFavoritesEnabled" name="IsFavoritesEnabled" type="hidden" value="True" />
+
+<input id="UrlGetLastFive" name="UrlGetLastFive" type="hidden" value="/ads/CaseLogs/CaseEntry/GetLastFive" /><input id="UrlGetLastCase" name="UrlGetLastCase" type="hidden" value="/ads/CaseLogs/CaseEntry/GetLastCase" /><input id="PatientIdDisplayName" name="PatientIdDisplayName" type="hidden" value="Case ID" />        <div class="panel panel-default" id="last-cases-wrapper">
+            <div class="panel-heading d-grid">
+                <a class="last-cases top-border" href="#last-cases-content" data-bs-toggle="collapse">
+                    <span class="float-start">
+                        <strong>Last 5 Cases</strong>
+                        <span id="lastSubmitted"></span>
+                    </span>
+                    <span class="float-end">
+                        <small>open</small>&nbsp;<i class="icon-large icon-angle-up" aria-hidden="true"></i>
+                    </span>
+                </a>
+            </div>
+            <div class="panel-collapse collapse" id="last-cases-content">
+                <div class="last-cases-inner">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Created</th>
+                                    <th>Case ID</th>
+                                <th>Case Date</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="lastFiveTable">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+</form>
+						<div id="back-to-top">
+							<hr />
+							<a href="#" class="btn btn-sm btn-link back-to-top" role="button" title="Click to return to the top of the page"
+							   data-bs-toggle="tooltip" data-bs-placement="right">
+								<i class="icon-angle-up icon-large" aria-hidden="true">
+								</i>back to top
+							</a>
+
+						</div>
+					</div>
+				</div>
+					<div id="side-panel-background-fix">
+						&nbsp;
+					</div>
+					<div id="side-panel">
+						
+    <div class="fixed-scroll">
+            <div class="alert-sidePanel">
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading selectedCodes">
+            <a  href="#selected-codes" data-bs-toggle="tab">Selected</a>
+            <span id="num-selected-codes">
+                <span><span class="badge rounded-pill" id="badge-counter">0</span></span>
+            </span>
+            <span class="float-end">
+                    <span class="js-switch-container">
+                        <label class="checkbox inline " data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="top"
+                               data-bs-content="Lock will carry over your selected codes to the next case.">
+                            <input id="HoldEm" name="HoldEm" type="checkbox" class="js-switch"  />
+                            <small>Lock</small>
+                        </label>
+                    </span>
+                                    <span class="clearAll">
+                        <a href="javascript:;" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Clear All" data-bs-placement="top">
+                            <i class="icon-remove-sign icon-large" aria-hidden="true"></i>
+                        </a>
+                    </span>
+            </span>
+        </div>
+        <ul class="list-group selectedCodesBody">
+            
+        </ul>
+    </div>
+
+        
+    </div>
+
+					</div>
+				<div class="clear-fix">
+					&nbsp;
+				</div>
+			</div>
+			<div id="page-footer">
+        <ul class="list-unstyled float-end inline">
+            
+            <li><small><a class="text-muted s" href="/ads/SharedArea/BuildNotes/Index">Software Updates</a></small></li>
+        </ul>
+        <p class="text-muted">
+                <img src="/ads/Content/imgs/acgme-logo.svg" alt="ACGME" onerror="this.onerror=null; this.src='/ads/Content/imgs/acgme-footer-logo.gif'" />
+            <small>&copy; 2023 Accreditation Council for Graduate Medical Education (ACGME)</small>
+        </p>
+
+    </div>
+
+		</div>
+	</div>
+</body>
+</html>
