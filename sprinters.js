@@ -3,8 +3,6 @@ const multer = require('multer');
 const mysql = require('mysql');
 const port = process.env.PORT || 3000
 
-app.use(express.static('public'));
-
 // Create a MySQL connection pool
 const pool = mysql.createPool({
   host: 'localhost',
@@ -15,6 +13,8 @@ const pool = mysql.createPool({
 
 // Create an Express app
 const app = express();
+
+app.use(express.static('public'));
 
 // Set up Multer to handle file uploads
 const storage = multer.diskStorage({
