@@ -5,9 +5,10 @@ const port = process.env.PORT || 3000
 
 // Create a MySQL connection pool
 const pool = mysql.createPool({
-  host: 'localhost',
-  user: 'sprinters',
-  password: 'Ddjsddjs1!',
+  host: '127.0.0.1',
+  port: '56758',
+  user: 'azure',
+  password: '6#vWHD_$',
   database: 'Sprinters',
 });
 
