@@ -3,6 +3,8 @@ const multer = require('multer');
 const mysql = require('mysql');
 const port = process.env.PORT || 3000
 
+app.use(express.static('public'));
+
 // Create a MySQL connection pool
 const pool = mysql.createPool({
   host: 'localhost',
