@@ -1,30 +1,25 @@
 const express = require('express');
 const multer = require('multer');
 const mysql = require('mysql');
-const port = process.env.PORT || 3000
+const { BlobServiceClient } = require('@azure/storage-blob');
 
-// Create a MySQL connection pool
+const app = express();
+const port = process.env.PORT || 3000;
+
 const pool = mysql.createPool({
   host: 'localhost',
   user: 'sprinters',
   password: 'Ddjsddjs1!',
-  database: 'Sprinters',
+  database: 'Sprinters'
 });
-const { BlobServiceClient } = require('@azure/storage-blob');
 
-// Create an Express app
-const app = express();
+const blobServiceClient = BlobServiceClient.fromConnectionString('DefaultEndpointsProtocol=https;AccountName=sprinterappstorage;AccountKey=cMGeIF09/yxf+a0QWcK84tE2dgcwthq62O7oobeUNizu/7NqSZxgQS1w7rmm7vZSWQylzdA/qq6R+AStWjZmeQ==;EndpointSuffix=core.windows.net');
 
 app.use(express.static('public'));
 
-// Set up Multer to handle file uploads
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-// Create a Blob Service Client
-const blobServiceClient = BlobServiceClient.fromConnectionString('DefaultEndpointsProtocol=https;AccountName=sprinterappstorage;AccountKey=cMGeIF09/yxf+a0QWcK84tE2dgcwthq62O7oobeUNizu/7NqSZxgQS1w7rmm7vZSWQylzdA/qq6R+AStWjZmeQ==;EndpointSuffix=core.windows.net');
-
-// Define a route to handle file uploads
 app.post('/upload', upload.single('file'), async (req, res, next) => {
   const file = req.file;
 
@@ -34,18 +29,24 @@ app.post('/upload', upload.single('file'), async (req, res, next) => {
     return next(error);
   }
 
-  // Upload the file to Blob Storage
   const containerName = 'videos';
   const blobName = Date.now() + '-' + file.originalname;
   const containerClient = blobServiceClient.getContainerClient(containerName);
   const blockBlobClient = containerClient.getBlockBlobClient(blobName);
-  const uploadResult = await blockBlobClient.upload(file.buffer, file.buffer.length);
 
-  // Send response
-  res.send('File uploaded successfully');
+  try {
+    const uploadResult = await blockBlobClient.upload(file.buffer, file.buffer.length);
+    res.send('File uploaded successfully');
+  } catch (err) {
+    next(err);
+  }
 });
 
-// Start the server
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(err.status || 500).send({ error: err.message });
+});
+
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
