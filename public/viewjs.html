@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+
+  <script>
+///how to display what is in another directory on the same site
+///javascript to make an AJAX call to PHP file
+
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("fileList").innerHTML = this.responseText;
+    }
+};
+xmlhttp.open("GET", "listfiles2.php", true);
+xmlhttp.send();
+
+///displaying our cat pic
+    let piclink = "../uploads/smallcatpic.jpg";
+
+    document.write("<title1>Regular Cat: Local</title1> <br> <img src='" + piclink + "' alt='My Image' width='300' height='200'>");
+
+
+  </script>
+
+
+<br>
+<!--this displays a test cat from the internet-->
+<title1>Wide Cat: External</title1>
+<br>
+  <img src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=pexels-pixabay-45201.jpg&fm=jpg"
+    alt="wide cat pic"width='500' height='200'> 
+
+
+<!--the list-->
+  <br>
+  <br>
+
+ <title1>List Files</title1>
+ <div id="fileList"></div>
+
+
+
+</body>
+
+</html>
