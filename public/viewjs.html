@@ -10,6 +10,7 @@
 ///how to display what is in another directory on the same site
 ///javascript to make an AJAX call to PHP file
 
+/* commenting this code for the PHP call
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -18,6 +19,25 @@ xmlhttp.onreadystatechange = function() {
 };
 xmlhttp.open("GET", "listfiles2.php", true);
 xmlhttp.send();
+*/
+
+// Get the <ul> element to append the list items to
+  var list = document.getElementById("fileList");
+
+// Make a request to the server-side script that returns the list of files as JSON
+fetch("../uploads")
+  .then(response => response.json())
+  .then(files => {
+    // Loop through the list of files and create a <li> element for each one
+    files.forEach(file => {
+      var listItem = document.createElement("li");
+      var textNode = document.createTextNode(file);
+      listItem.appendChild(textNode);
+      list.appendChild(listItem);
+    });
+  })
+  .catch(error => console.error(error));
+
 
 ///displaying our cat pic
     let piclink = "../uploads/smallcatpic.jpg";
@@ -41,7 +61,12 @@ xmlhttp.send();
   <br>
 
  <title1>List Files</title1>
- <div id="fileList"></div>
+ <ul id="fileList"></ul>
+
+
+ <p>Check out this pic from another directory:</p>
+	<img src="../uploads/smallcatpic.jpg" alt="cat pic" width='300' height='200'>
+
 
 
 
