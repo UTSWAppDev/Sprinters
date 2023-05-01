@@ -26,13 +26,12 @@ xmlhttp.send();
 
 ///displaying our cat pic
 
-fetch(../uploads/smallcatpic.jpg)
-    .then(response => piclink)
-    .catch(error => console.error(error));
-
-  
-
+fetch('../uploads/smallcatpic.jpg')
+  .then(response => response.blob())
+  .then(blob => {
+    const piclink = URL.createObjectURL(blob);
     document.write("<title1>Regular Cat: Local</title1> <br> <img src='" + piclink + "' alt='My Image' width='300' height='200'>");
+  });
 
 
   </script>
