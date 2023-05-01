@@ -10,7 +10,7 @@
 ///how to display what is in another directory on the same site
 ///javascript to make an AJAX call to PHP file
 
-/* commenting this code for the PHP call
+
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -19,28 +19,18 @@ xmlhttp.onreadystatechange = function() {
 };
 xmlhttp.open("GET", "listfiles2.php", true);
 xmlhttp.send();
-*/
 
-// Get the <ul> element to append the list items to
-  var list = document.getElementById("fileList");
 
-// Make a request to the server-side script that returns the list of files as JSON
-fetch("../uploads")
-  .then(response => response.json())
-  .then(files => {
-    // Loop through the list of files and create a <li> element for each one
-    files.forEach(file => {
-      var listItem = document.createElement("li");
-      var textNode = document.createTextNode(file);
-      listItem.appendChild(textNode);
-      list.appendChild(listItem);
-    });
-  })
-  .catch(error => console.error(error));
+
 
 
 ///displaying our cat pic
-    let piclink = "../uploads/smallcatpic.jpg";
+
+fetch(../uploads/smallcatpic.jpg)
+    .then(response => piclink)
+    .catch(error => console.error(error));
+
+  
 
     document.write("<title1>Regular Cat: Local</title1> <br> <img src='" + piclink + "' alt='My Image' width='300' height='200'>");
 
@@ -61,7 +51,7 @@ fetch("../uploads")
   <br>
 
  <title1>List Files</title1>
- <ul id="fileList"></ul>
+ <div id="fileList"></div>
 
 
  <p>Check out this pic from another directory:</p>

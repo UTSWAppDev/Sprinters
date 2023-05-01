@@ -20,7 +20,7 @@ app.use(express.static('public'));
 // Set up Multer to handle file uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './uploads/');
+    cb(null, './public/');
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + '-' + file.originalname);
