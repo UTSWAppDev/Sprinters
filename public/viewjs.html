@@ -8,34 +8,24 @@
 
   <script>
 ///how to display what is in another directory on the same site
-///javascript to make an AJAX call to PHP file
-
-
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("fileList").innerHTML = this.responseText;
-    }
-};
-xmlhttp.open("GET", "listfiles2.php", true);
-xmlhttp.send();
 
 
 
-
-
-///displaying our cat pic
+///displaying our cat pic from a different folder
 
 fetch('../uploads/smallcatpic.jpg')
   .then(response => response.blob())
   .then(blob => {
     const piclink = URL.createObjectURL(blob);
-    document.write("<title1>Regular Cat: Local</title1> <br> <img src='" + piclink + "' alt='My Image' width='300' height='200'>");
-  });
+    const img = document.createElement('img');
+        img.src = piclink
+        img.width = 300
+        img.height = 200;
+        document.body.appendChild(img);
+      });
 
 
   </script>
-
 
 <br>
 <!--this displays a test cat from the internet-->
@@ -53,9 +43,10 @@ fetch('../uploads/smallcatpic.jpg')
  <div id="fileList"></div>
 
 
- <p>Check out this pic from another directory:</p>
+ <p>Check out this pic from another directory using HTML only:</p>
 	<img src="../uploads/smallcatpic.jpg" alt="cat pic" width='300' height='200'>
-
+<br>
+<title1>This cat pic is fetched from uploads directory</title1><br>
 
 
 
