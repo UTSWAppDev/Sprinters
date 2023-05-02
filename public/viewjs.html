@@ -13,7 +13,7 @@
 
 ///displaying our cat pic from a different folder
 
-fetch('../uploads/smallcatpic.jpg')
+fetch('./uploads/smallcatpic.jpg')
   .then(response => response.blob())
   .then(blob => {
     const piclink = URL.createObjectURL(blob);
