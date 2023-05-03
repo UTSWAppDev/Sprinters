@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>List of Videos</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#list-button').click(function() {
+        $.get('/listpics', function(data) {
+          $('#list-div').html(data);
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <h1>List of Videos</h1>
+  <button id="list-button">List Videos</button>
+  <div id="list-div"></div>
+</body>
+</html>
